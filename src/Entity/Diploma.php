@@ -36,6 +36,17 @@ class Diploma
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $year;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $place;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +96,35 @@ class Diploma
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    public function getYear(): ?string
+    {
+        return $this->year;
+    }
+
+    public function setYear(string $year): self
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    public function getPlace(): ?string
+    {
+        return $this->place;
+    }
+
+    public function setPlace(string $place): self
+    {
+        $this->place = $place;
 
         return $this;
     }

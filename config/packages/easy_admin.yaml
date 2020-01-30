@@ -6,9 +6,13 @@ easy_admin:
         - App\Entity\Project
         - App\Entity\Diploma
         - App\Entity\Language
+        - App\Entity\SpeakingLanguage
+        - App\Entity\Skill
     design:
         menu:
             - { entity: 'User', icon: 'user' }
             - { entity: 'Project', icon: 'folder' }
             - { entity: 'Diploma', icon: 'certificate' }
-            - { entity: 'Language', icon: 'language' }
+            - { entity: 'Language', icon: 'tv' }
+            - { entity: 'SpeakingLanguage', icon: 'language'}
+            - { entity: 'Skill', icon: 'app-store' }

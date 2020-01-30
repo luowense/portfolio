@@ -4,17 +4,19 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-            <link rel="stylesheet" href="/build/app.3cd71e38.css"
+            <link rel="stylesheet" type="text/css" href="/assets/css/creative.min.css">
+            <script src="https://kit.fontawesome.com/338b1a41c2.js" crossorigin="anonymous"></script>
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body id="page-top">
         {% block header %}
             {% include 'layout/navbar.html.twig' %}
         {% endblock %}
         {% block body %}
         {% endblock %}
         {% block javascripts %}
-            <script src="/build/app.d69c8170.js"></script>
+            {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </body>
 </html>

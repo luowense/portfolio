@@ -10,10 +10,7 @@
                     <hr class="divider my-4">
                 </div>
                 <div class="col-lg-8 align-self-baseline">
-                    <p class="text-white-75 font-weight-light mb-5">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                    </p>
-                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{ path('about_me') }}">Find Out More</a>
                 </div>
             </div>
         </div>
@@ -24,147 +21,72 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 class="text-white mt-0">Curiosity is the key of innovation, imagination is the motor of possibles</h2>
+                    <h2 class="text-white mt-0">Curiosity is the key of innovation, imagination is the motor of
+                        possibles</h2>
                     <hr class="divider light my-4">
                     <p class="text-white-50 mb-4">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
                     </p>
-                    <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Know More</a>
+                    <a class="btn btn-light btn-xl js-scroll-trigger" href="{{ path('about_me') }}">Know More</a>
                 </div>
             </div>
         </div>
     </section>
+    </
 
     <!-- Services Section -->
-    <section class="page-section" id="services">
-        <div class="container">
-            <h2 class="text-center mt-0">My Projects</h2>
-            <hr class="divider my-4">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <i class="fas fa-4x fa-gem text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Sturdy Themes</h3>
-                        <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Up to Date</h3>
-                        <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <i class="fas fa-4x fa-globe text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Ready to Publish</h3>
-                        <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <i class="fas fa-4x fa-heart text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Made with Love</h3>
-                        <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio">
-        <div class="container-fluid p-0">
-            <div class="row no-gutters">
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="/assets/img/portfolio/fullsize/1.jpg">
-                        <img class="img-fluid" src="/assets/img/portfolio/thumbnails/1.jpg" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="/assets/img/portfolio/fullsize/2.jpg">
-                        <img class="img-fluid" src="/assets/img/portfolio/thumbnails/2.jpg" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
+    <section class="page-section text-white" id="services" style="margin-bottom: 42px">
+        <div class="container text-center" style="margin-top: 42px">
+            <h2 class="mb-4" style="margin-top: 42px">Discover My Last Projects </h2>
+            <a class="btn btn-dark btn-xl" style="color:black" href="{{ path('project') }}">Check all my posts</a>
+            <div class="wrap">
+                {% for project in projects | slice(0,3)%}
+                    <div class="tile">
+                        <img src='https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80'/>
+                        <div class="text">
+                            <h1>{{ project.name }}</h1>
+                            <h2 class="animate-text">{{ project.name }}</h2>
+                            <p class="animate-text">{{ project.description | slice(0, 50) }} </p>
+                            <div class="dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="/assets/img/portfolio/fullsize/3.jpg">
-                        <img class="img-fluid" src="/assets/img/portfolio/thumbnails/3.jpg" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="/assets/img/portfolio/fullsize/4.jpg">
-                        <img class="img-fluid" src="/assets/img/portfolio/thumbnails/4.jpg" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="/assets/img/portfolio/fullsize/5.jpg">
-                        <img class="img-fluid" src="/assets/img/portfolio/thumbnails/5.jpg" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="/assets/img/portfolio/fullsize/6.jpg">
-                        <img class="img-fluid" src="/assets/img/portfolio/thumbnails/6.jpg" alt="">
-                        <div class="portfolio-box-caption p-3">
-                            <div class="project-category text-white-50">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </section>
 
     <!-- Call to Action Section -->
-    <section class="page-section bg-dark text-white">
+    <section class="page-section bg-info text-white" id="portfolio" style="padding-top: 42px; padding-bottom: 42px">
         <div class="container text-center">
-            <h2 class="mb-4">Discover My Last Posts </h2>
-            <a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Check all my posts</a>
+            <h2 class="mb-4" >Discover My Last Posts </h2>
+            <a class="btn btn-light btn-xl" href="{{ path('blog') }}">Check all my posts</a>
+            <div class="wrap">
+                {% for post in posts | slice(0,3)%}
+                <div class="tile">
+                    <img src='https://images.unsplash.com/photo-1464054313797-e27fb58e90a9?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=996&q=80'/>
+                    <div class="text">
+                        <h1>{{ post.title | slice(0, 4)}}</h1>
+                        <h2 class="animate-text">{{ post.title }}</h2>
+                        <div class="dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </section>
 
@@ -181,16 +103,15 @@
             <div class="row">
                 <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
                     <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-                    <div>+1 (202) 555-0149</div>
+                    <div>+33 7-83-07-85-87</div>
                 </div>
                 <div class="col-lg-4 mr-auto text-center">
                     <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
                     <!-- Make sure to change the email address in anchor text AND the link below! -->
-                    <a class="d-block" href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
+                    <a class="d-block" href="mailto:contact@yourwebsite.com">laurent.roger.segura@gmail.com</a>
                 </div>
             </div>
         </div>
+        {% include'./animation/footer.html.twig' %}
     </section>
-
-
 {% endblock %}
