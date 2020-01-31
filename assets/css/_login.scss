@@ -26,7 +26,7 @@ body{
 .blurred-box{
   position: relative;
   width: 250px;
-  height: 350px;
+  height: 550px;
   top: calc(50% - 175px);
   left: calc(50% - 125px);
   background: inherit;
@@ -77,12 +77,12 @@ body{
 }
 
 input.user-password{
-  width: 120px;
-  height: 18px;
-  opacity: 0.4;
-  border-radius: 2px;
-  padding: 5px 15px;
-  border: 0;
+  width: 120px !important;
+  height: 18px !important;
+  opacity: 0.4 !important;
+  border-radius: 2px !important;
+  padding: 5px 15px !important;
+  border: 0 !important;
 }
 
 

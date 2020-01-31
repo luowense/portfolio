@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
  */
-class Comment
+class Contact
 {
     /**
      * @ORM\Id()
@@ -27,19 +27,14 @@ class Comment
     private $email;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Project", inversedBy="comments")
+     * @ORM\Column(type="string", length=255)
      */
-    private $project;
+    private $title;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $body;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isApproved;
+    private $content;
 
     public function getId(): ?int
     {
@@ -70,38 +65,26 @@ class Comment
         return $this;
     }
 
-    public function getProject(): ?Project
+    public function getTitle(): ?string
     {
-        return $this->project;
+        return $this->title;
     }
 
-    public function setProject(?Project $project): self
+    public function setTitle(string $title): self
     {
-        $this->project = $project;
+        $this->title = $title;
 
         return $this;
     }
 
-    public function getBody(): ?string
+    public function getContent(): ?string
     {
-        return $this->body;
+        return $this->content;
     }
 
-    public function setBody(string $body): self
+    public function setContent(string $content): self
     {
-        $this->body = $body;
-
-        return $this;
-    }
-
-    public function getIsApproved(): ?bool
-    {
-        return $this->isApproved;
-    }
-
-    public function setIsApproved(bool $isApproved): self
-    {
-        $this->isApproved = $isApproved;
+        $this->content = $content;
 
         return $this;
     }

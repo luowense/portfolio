@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact Me{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="jumbotron contact-form">
+            <h1 class="display-4">Hello Friend !</h1>
+            <p class="lead">Nice to see you here</p>
+            <hr class="my-4">
+            <p>If you have any project, idea to share with, please contact me, I will reply as soon as possible</p>
+        </div>
+        <div class="contactForm">
+            {{ form_start(contact_form) }}
+            {{ form_widget(contact_form) }}
+            <input class="btn-primary" type="submit" value="Send"/>
+            {{ form_end(contact_form) }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,54 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BlogPostController!{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
 
 {% block body %}
-    <section class="container">
-        <header>
-            <h1>Times New Roman</h1>
-            <p class="date">
-                By <a href="">Mads Håkansson</a>
-                On <a href="">May 14th 2014</a>
-                In <a href="">News</a>
-            </p>
-        </header>
-
-        <article>
-            <p class="intro">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque quae nobis labore cupiditate quibusdam accusantium sunt beatae quos delectus alias ullam id dolore eum. Molestias quaerat illum commodi.
-            </p>
-
-
-
-            <p class="col">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto voluptatem ratione nihil iure nobis assumenda quae mollitia necessitatibus facere perspiciatis tenetur voluptatum neque quis aut non aliquam delectus! Eius sunt optio cumque iure porro cupiditate neque obcaecati est. Suscipit ipsum eveniet illo tempore perferendis officia mollitia nemo cumque necessitatibus repellat. Excepturi explicabo impedit sit vel necessitatibus <a href="" class="inline-link">Inline link</a> labore architecto dolore dignissimos est nostrum ipsam sed eos consequuntur asperiores doloremque quis voluptate!
-            </p>
-
-            <blockquote>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit recusandae asperiores explicabo.
-                <cite>John doe</cite>
-            </blockquote>
-
-            <p class="col">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste officiis quaerat ullam commodi omnis aliquam magni repellendus saepe? Quasi ipsam quaerat maxime adipisci inventore possimus pariatur optio illum doloribus quos.
-            </p>
-
-            <img src="https://s3.amazonaws.com/ooomf-com-files/tEREUy1vSfuSu8LzTop3_IMG_2538.jpg" alt="" />
-
-            <h2>Same font, just smaller.</h2>
-            <p class="col">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus libero ratione fugiat vero quae dolores temporibus accusantium animi similique esse natus quo nulla debitis quasi distinctio voluptate quidem tenetur ullam a nemo eveniet sapiente ab atque aliquid eos eaque alias asperiores. Similique voluptatem ea voluptates voluptate fugiat facere inventore quasi quas dignissimos dolorum alias hic. Magni aliquid dignissimos autem debitis aut earum nam magnam molestiae aliquam natus eveniet fugiat molestias harum numquam ullam nisi provident tenetur labore possimus quae. Laudantium voluptatibus totam cum voluptate iste quasi magni reiciendis facere ea ab sunt similique odio aliquam quaerat ullam possimus officia necessitatibus!
-            </p>
-
-            <ul>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Consectetur adipisicing elit. Doloremque assumenda.</li>
-                <li>Quae non maxime eaque voluptatum rerum aperiam.</li>
-                <li>Eveniet molestias soluta recusandae eligendi inventore provident voluptatum libero doloremque nam repudiandae?</li>
-                <li>Dacere inventore quasi quas dignissimos dolorum.</li>
-            </ul>
-
-            <a href="" class="btn">Ghost button</a>
-        </article>
+    <section class="container postDisplay">
+        <div class="post-picture">
+            <img src="{{ post.picture }}" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">{{ post.title }}</h1>
+                <p class="lead">{{ post.content | slice(0, 80)}} ...</p>
+            </div>
+        </div>
+        <div>
+            <p>{{ post.content }}</p>
+        </div>
+        <div class="commentPost">
+            <h2>Comments</h2>
+            <div>
+                {% for comment in comments %}
+                    <h3>{{ comment.title }}</h3>
+                    <p>{{ comment.body }}</p>
+                {% endfor %}
+                {% if comment is not defined %}
+                    <p>There is no comment for this post</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="comment-section">
+            <h3>Leave a comment</h3>
+            {{ form_start(comment_form) }}
+            {{ form_widget(comment_form) }}
+            <input class="btn-primary" type="submit" value="Send"/>
+            {{ form_end(comment_form) }}
+        </div>
     </section><!-- /container -->
 {% endblock %}

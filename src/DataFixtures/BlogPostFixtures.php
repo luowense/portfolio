@@ -18,7 +18,7 @@ class BlogPostFixtures extends Fixture implements DependentFixtureInterface
             $post = new BlogPost();
             $post->setTitle($faker->sentence);
             $post->setContent($faker->paragraph);
-            $post->setPicture($faker->imageUrl(400,400));
+            $post->setPicture($faker->imageUrl(1500,400));
             $post->setCategory($this->getReference('category_' . rand(0,9)));
             $manager->persist($post);
         }

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Project{% endblock %}
+
+{% block body %}
+    <section class="container postDisplay">
+        <div class="post-picture">
+        </div>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">{{ project.name }}</h1>
+                <p class="lead">{{ project.description | slice(0, 80)}} ...</p>
+                <p><strong>{{ project.language }}</strong></p>
+            </div>
+        </div>
+        <div>
+            <p>{{ project.description }}</p>
+        </div>
+    </section><!-- /container -->
+{% endblock %}

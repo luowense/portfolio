@@ -27,6 +27,11 @@ class SpeakingLanguage
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $level;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class SpeakingLanguage
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getLevel(): ?int
+    {
+        return $this->level;
+    }
+
+    public function setLevel(?int $level): self
+    {
+        $this->level = $level;
 
         return $this;
     }

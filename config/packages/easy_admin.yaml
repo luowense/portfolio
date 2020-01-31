@@ -1,4 +1,6 @@
 easy_admin:
+    user:
+        display_name: true
     site_name: 'My Portfolio'
     entities:
         # List the entity class name you want to manage
@@ -8,11 +10,25 @@ easy_admin:
         - App\Entity\Language
         - App\Entity\SpeakingLanguage
         - App\Entity\Skill
+        - App\Entity\Comment
+        - App\Entity\HumanProject
+        - App\Entity\BlogPost
+        - App\Entity\Experience
     design:
         menu:
+            - { label: 'About Me' }
             - { entity: 'User', icon: 'user' }
-            - { entity: 'Project', icon: 'folder' }
+            - { label: 'Resume' }
             - { entity: 'Diploma', icon: 'certificate' }
+            - { entity: 'Experience', icon: 'book-reader' }
+            - { entity: 'Skill', icon: 'app-store' }
+            - { label: 'Manage Project' }
+            - { entity: 'Project', icon: 'folder' }
+            - { entity: 'HumanProject', icon: 'book'}
+            - { label: 'Languages' }
             - { entity: 'Language', icon: 'tv' }
             - { entity: 'SpeakingLanguage', icon: 'language'}
-            - { entity: 'Skill', icon: 'app-store' }
+            - { label: 'Blog' }
+            - { entity: 'BlogPost', icon: 'blogger' }
+            - { entity: 'Comment', icon: 'comments' }
+

@@ -19,11 +19,13 @@
                 <span class="user-icon"></span>
                 <div class="user-name">张罗文</div>
                 <form method="post">
-                    <input type="email" id="inputEmail" class="user-password" name="email" value="{{ last_username }}"
+                    <label>Email</label>
+                    <input type="email" id="inputEmail" class="form-control" name="email" value="{{ last_username }}"
                            placeholder="email"
                            required autofocus>
-                    <input class="user-password" type="password" name="password" id="inputPassword"
-                           placeholder="Password"
+                    <label>Password</label>
+                    <input id="user-password" class=form-control" type="password" name="password"
+                           placeholder="Password" style="margin-bottom: 26px"
                            required autofocus>
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
 

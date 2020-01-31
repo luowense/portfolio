@@ -28,6 +28,11 @@ class Language
      */
     private $projects;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $level;
+
     public function __construct()
     {
         $this->projects = new ArrayCollection();
@@ -77,6 +82,18 @@ class Language
                 $project->setLanguage(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLevel(): ?int
+    {
+        return $this->level;
+    }
+
+    public function setLevel(?int $level): self
+    {
+        $this->level = $level;
 
         return $this;
     }
