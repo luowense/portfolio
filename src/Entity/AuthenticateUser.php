@@ -57,7 +57,7 @@ class AuthenticateUser implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+            return (string) $this->email;
     }
 
     /**
@@ -110,4 +110,15 @@ class AuthenticateUser implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    public function serialize()
+    {
+        return serialize([$this->id, $this->email, $this->password]);
+    }
+
+    public function unserialize($serialized)
+    {
+        [$this->id, $this->email, $this->password] = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
 }

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MapController!{% endblock %}
+
+{% block body %}
+
+    <div id="map"></div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src=’https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href=’https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel=’stylesheet’ />
+
+    <script type="text/javascript">
+        mapboxgl.accessToken = 'pk.eyJ1IjoibHVvd2VuIiwiYSI6ImNrMnE1ZTJnazA4NWQzZW1vZXljYWg1NmwifQ.MkqZuE6WAw6bHKDg43JCFw';
+
+
+        var map = new mapboxgl.Map({
+            container: 'map', // HTML container id
+            style: 'mapbox://styles/mapbox/streets-v9', // style URL
+            center: [-21.9270884, 64.1436456], // starting position as [lng, lat]
+            zoom: 13
+        });
+    </script>
+{% endblock %}
