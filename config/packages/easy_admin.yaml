@@ -14,6 +14,7 @@ easy_admin:
         - App\Entity\HumanProject
         - App\Entity\BlogPost
         - App\Entity\Experience
+        - App\Entity\Comment
     design:
         menu:
             - { label: 'About Me' }

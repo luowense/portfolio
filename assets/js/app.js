@@ -5,15 +5,17 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
  // End of use strict
-//var $ = require('jquery');
+var $ = require('jquery');
+window.$ = $;
 //window.jQuery = $;
+//require('jquery');
 require('bootstrap');
-require('jquery/src/jquery');
-import $ from 'jquery';
-require('./loginPage');
-require('./timeline');
+//require('jquery/src/jquery');
+//import $ from 'jquery';
+require('./loginPage.js');
+// require('../js/timeline.js');
 require('./style.js');
-// import '../js/style';
+//import '../js/style';
 // import '../js/timeline.js';
 // import '../js/loginPage.js';
 // any CSS you import will output into a single css file (app.scss in this case)

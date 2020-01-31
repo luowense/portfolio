@@ -10,7 +10,7 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4">{{ post.title }}</h1>
-                <p class="lead">{{ post.content | slice(0, 80)}} ...</p>
+                <p class="lead">{{ post.content | slice(0, 80) }} ...</p>
             </div>
         </div>
         <div>
@@ -18,14 +18,38 @@
         </div>
         <div class="commentPost">
             <h2>Comments</h2>
-            <div>
-                {% for comment in comments %}
-                    <h3>{{ comment.title }}</h3>
-                    <p>{{ comment.body }}</p>
-                {% endfor %}
-                {% if comment is not defined %}
-                    <p>There is no comment for this post</p>
-                {% endif %}
+
+            <div class="commentPart">
+                <div class="comment-wrapper">
+                    <div class="panel panel-info">
+
+                        <div class="panel-body">
+                            <hr>
+                            <ul class="media-list">
+                                {% for comment in comments %}
+                                    {% if comment.name is not defined %}
+                                        <p>There is no comment for this post</p>
+                                    {% endif %}
+                                    {% if comment.post.id == post.id %}
+                                        <li class="media">
+                                            <a href="#" class="pull-left">
+                                                <img src="https://bootdey.com/img/Content/user_1.jpg" alt=""
+                                                     class="img-circle">
+                                            </a>
+                                            <div class="media-body">
+                                <span class="text-muted pull-right">
+                                    <small class="text-muted">30 min ago</small>
+                                </span>
+                                                <strong class="text-success">@{{ comment.name }}</strong>
+                                                <p>{{ comment.body }}</p>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="comment-section">

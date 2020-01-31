@@ -5,7 +5,6 @@
 {% block body %}
     {% for user in user %}
         <header class="user-info">
-            <i class="fa fa-bars" aria-hidden="true"></i>
         </header>
         <main style="background-color: white !important;">
             <div class="row">
@@ -15,7 +14,7 @@
                              src="https://media-exp1.licdn.com/dms/image/C5603AQHP1x8UDlw9zQ/profile-displayphoto-shrink_200_200/0?e=1585785600&v=beta&t=8U6jVzN2kAzbY3YtbszOLIYQ3umhLCuPuxwWOR7jJwg"/>
                     </div>
                     <h4 class="name">{{ user.name }}</h4></br>
-                    <p class="info">{{ user.email }}</p>
+                    <p class="info"><strong>{{ user.email }}</strong></p>
                     <p class="desc">{{ user.description }}</p>
 
                     <div class="social">
@@ -25,7 +24,7 @@
                         <i class="fab fa-tumblr-square" aria-hidden="true"></i>
                     </div>
                     <div class="linkedin">
-                        <h2 class="mb-4" style="margin-top: -72px"><a href="https://www.linkedin.com/in/laurent-segura-52209669/" style="text-decoration: none">Follow me on
+                        <h2 class="mb-4" style="margin-top: -72px;"><a style="text-decoration: none;" href="https://www.linkedin.com/in/laurent-segura-52209669/">Follow me on
                                 Linkedin</a></h2>
                     </div>
                 </div>

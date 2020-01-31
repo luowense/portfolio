@@ -19,11 +19,14 @@ class BlogPostController extends AbstractController
     /**
      * @Route("/blog", name="blog")
      * @param BlogPostRepository $blogPostRepository
+     * @param CommentRepository $commentRepository
      * @return Response
      */
     public function index(BlogPostRepository $blogPostRepository)
     {
         $posts = $blogPostRepository->findAll();
+
+
 
         return $this->render('blog/index.html.twig', [
             'posts' => $posts
@@ -41,10 +44,12 @@ class BlogPostController extends AbstractController
      */
     public function blogPost(BlogPostRepository $blogPostRepository, $id, MailerInterface $mailer, Request $request, CommentRepository $commentRepository)
     {
-        $comments = $commentRepository->find($id);
         $post = $blogPostRepository->find($id);
+        $comments = $commentRepository->findByPost($post);
+
         $comment = new Comment();
         $comment->setIsApproved(false);
+        $comment->setPost($post);
         $form = $this->createForm(CommentType::class, $comment);
 
         $form->handleRequest($request);
@@ -59,7 +64,7 @@ class BlogPostController extends AbstractController
 
             $email = (new TemplatedEmail())
                 ->from('laurent.develop38@gmail.com')
-                ->to('laurent.develop38@gmail.com')
+                ->to($comment->getEmail())
                 ->subject('test')
                 ->htmlTemplate('email/comment.html.twig')
                 ->context([
@@ -68,7 +73,6 @@ class BlogPostController extends AbstractController
 
             $mailer->send($email);
 
-            return $this->redirectToRoute('homepage');
 
         }
 
